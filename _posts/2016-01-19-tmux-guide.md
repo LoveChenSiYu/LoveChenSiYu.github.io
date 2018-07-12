@@ -7,13 +7,13 @@ tag: [shell, linux]
 
   Tmux是一个优秀的终端复用软件，支持多标签，也支持窗口内部面板的分割，更重要的是，Tmux提供了窗体随时保存和恢复的功能。想象一下假如你在公司的服务器上开了许多窗口调试程序，回到家时通过SSH连接公司电脑又要打开一堆繁琐的窗口，而且还忘记了当时调试到哪一步了，那Tmux可以帮你解决这个难题，当SSH连接断开重新连接后能够恢复到原来的工作环境。
 
-##安装 
+## 安装 
 
 	sudo apt-get install tmux
 
 安装完成后输入tmux进入软件，界面类似一个下方带有状态栏的终端。
 
-##基本概念
+## 基本概念
 
   Tmux基于典型的c/s模型，主要分为会话、窗口和面板三个元素：
 
@@ -25,14 +25,14 @@ tag: [shell, linux]
 
 图中左下角的3显示为当前会话，随后1 vim,2 bash,3 ssh 分别是3个窗口，蓝色bash表示当前窗口，图中用蓝色数字标记的1,2,3分别是bash窗口的三个面板。你还可以在tmux配置文件中给状态栏添加时间、天气等信息。
 
-##Tmux基本操作
+## Tmux基本操作
 
 Tmux的所有操作必须使用一个前缀进入命令模式，默认前缀为Ctrl+b，很多人会改为Ctrl+a,你可以修改tmux.conf配置文件来修改默认前缀：
 
 {% highlight Vim Script %}
-#前缀设置为<Ctrl-a>
+# 前缀设置为<Ctrl-a>
 set -g prefix C-a
-#解除<Ctrl-b>
+# 解除<Ctrl-b>
 ubind C-b
 {% endhighlight Vim Script %}
 
@@ -46,7 +46,7 @@ source-file ~/.tmux.conf
 你也可以在配置文件中加入下面这句话，以后改了配置文件只需要按前缀+r了。
 
 {% highlight Vim Script %}
-#将r 设置为加载配置文件，并显示"reloaded!"信息
+# 将r 设置为加载配置文件，并显示"reloaded!"信息
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 {% endhighlight Vim Script %}
 	
